@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>WhatsApp Intégré</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    .phone-frame {
+      width: 360px;
+      height: 700px;
+      border: 12px solid black;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      position: relative;
+    }
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .not-supported {
+      display: none;
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      color: white;
+      font-size: 16px;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="phone-container">
+    <div class="phone-frame">
+      <div class="phone-screen-container">
+        <iframe src="https://web.whatsapp.com/" class="phone-screen"></iframe>
+        <div class="not-supported" id="error-message">
+          WhatsApp Web ne peut pas être chargé directement ici pour des raisons de sécurité. <br/>
+          Cliquez ci-dessous pour ouvrir WhatsApp directement.
+          <br><br>
+          <button onclick="openWhatsApp()">Ouvrir WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const iframe = document.querySelector('.phone-screen');
+    iframe.onerror = function() {
+      document.querySelector('.not-supported').style.display = 'block';
+    };
+
+    function openWhatsApp() {
+      window.open('https://web.whatsapp.com/', '_blank', 'width=400,height=700');
+    }
+  </script>
+</body>
+</html>
+
+---
+
+### 3. **Intégration dans Softr**
+
+- Héberge ce fichier sur GitHub Pages, Netlify, ou un autre hébergeur simple.
+- Dans Softr, utilise l'élément « Embed » (Custom Code) pour charger l'URL vers ton fichier HTML externe via une iframe :
+  
+```html
+<iframe src="https://ton_url_hebergee/whatsapp.html" style="width: 100%; height: 800px; border:none;"></iframe>
+
