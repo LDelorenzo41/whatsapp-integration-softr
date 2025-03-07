@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Instagram - Accès rapide</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: transparent;
+      margin: 0;
+    }
+    .phone-frame {
+      width: 250px; /* taille réduite comme WhatsApp */
+      height: 490px;
+      border: 8px solid black;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+      background-color: #fafafa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .btn-instagram {
+      padding: 10px 18px;
+      background-color: #E4405F; /* couleur Instagram */
+      color: white;
+      border-radius: 8px;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform 0.2s;
+      white-space: nowrap;
+    }
+    .btn-instagram:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="phone-frame">
+    <button class="btn-instagram" onclick="openInstagram()">📸 Ouvrir Instagram</button>
+  </div>
+
+  <script>
+    function openInstagram() {
+      window.open('https://www.instagram.com/unss_sd41/', '_blank', 'width=400,height=700');
+    }
+  </script>
+</body>
+</html>
